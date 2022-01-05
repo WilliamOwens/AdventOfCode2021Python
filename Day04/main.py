@@ -16,14 +16,15 @@ def checkForHorizontalOrVerticalBingo(inputCard):
             return True
     return False
 
-def checkForBingo(arrayOfCards):
+def checkForAllBingos(arrayOfCards):
+    cardsWithBingo = []
     for i in range(0, len(arrayOfCards), 25):
         cardToCheck = arrayOfCards[i:i+25]
         if (checkForHorizontalOrVerticalBingo(cardToCheck)):
-            return int(i/25)
-    return 'No Bingo Found'
+            cardsWithBingo.append(int(i/25))
+    return cardsWithBingo
 
-def solution1(l):
+def solution(l, firstLast):
     arrayOfBingoNumbers = getBingoNumbers(l)
     singleArrayOfBingoCards = getBingoCardsAsSingleArray(l)
     emptyCard = [''] * len(singleArrayOfBingoCards)
@@ -31,16 +32,26 @@ def solution1(l):
         spots = [i for i, e in enumerate(singleArrayOfBingoCards) if e == arrayOfBingoNumbers[bingoNumberCalled]]
         for j in range(0, len(spots)):
             emptyCard[spots[j]] = arrayOfBingoNumbers[bingoNumberCalled]
-        didWeFindBingo = checkForBingo(emptyCard)
-        if (didWeFindBingo != 'No Bingo Found'):
-            intArrayOfWholeCard = [int(i) for i in singleArrayOfBingoCards[(didWeFindBingo * 25):((didWeFindBingo * 25) + 25)]]
-            intArrayOfPartialCard = [int(j) for j in emptyCard[(didWeFindBingo * 25):((didWeFindBingo * 25) + 25)] if len(j) > 0]
-            return (sum(intArrayOfWholeCard) - sum(intArrayOfPartialCard)) * int(arrayOfBingoNumbers[bingoNumberCalled])
+        didWeFindBingo = checkForAllBingos(emptyCard)
+        if (len(didWeFindBingo) > 0):
+            if (firstLast == 'first'):
+                intArrayOfWholeCard = [int(i) for i in singleArrayOfBingoCards[(didWeFindBingo[0] * 25):((didWeFindBingo[0] * 25) + 25)]]
+                intArrayOfPartialCard = [int(j) for j in emptyCard[(didWeFindBingo[0] * 25):((didWeFindBingo[0] * 25) + 25)] if len(j) > 0]
+                return (sum(intArrayOfWholeCard) - sum(intArrayOfPartialCard)) * int(arrayOfBingoNumbers[bingoNumberCalled])
+            elif (firstLast == 'last'):
+                if (len(singleArrayOfBingoCards) > 25):
+                    for k in reversed(range(0, len(didWeFindBingo))):
+                        del singleArrayOfBingoCards[(didWeFindBingo[k] * 25):((didWeFindBingo[k] * 25) + 25)]
+                        del emptyCard[(didWeFindBingo[k] * 25):((didWeFindBingo[k] * 25) + 25)]
+                else:
+                    intArrayOfWholeCard = [int(i) for i in singleArrayOfBingoCards]
+                    intArrayOfPartialCard = [int(j) for j in emptyCard if len(j) > 0]
+                    return (sum(intArrayOfWholeCard) - sum(intArrayOfPartialCard)) * int(arrayOfBingoNumbers[bingoNumberCalled])
 
 if __name__ == "__main__":
     dir = os.path.abspath(os.path.dirname(__file__))
     with open(os.path.join(dir, "input.txt")) as file:
         _input = file.read().splitlines()
     
-    print(solution1(_input))
-    # print(solution2(_input))
+    print(solution(_input, 'first'))
+    print(solution(_input, 'last'))
