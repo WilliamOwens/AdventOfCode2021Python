@@ -1,6 +1,12 @@
 import os
 
-VERT = {'down': 1, 'up': -1} 
+VERT = {'down': 1, 'up': -1}
+
+def readFile(fileName):
+    dir = os.path.abspath(os.path.dirname(__file__))
+    with open(os.path.join(dir, fileName)) as file:
+        _input = file.read().splitlines()
+    return _input
 
 def solution1(l):
     x = 0 
@@ -29,9 +35,6 @@ def solution2(l):
 
 
 if __name__ == "__main__":
-    dir = os.path.abspath(os.path.dirname(__file__))
-    with open(os.path.join(dir, "input.txt")) as file:
-        _input = file.read().splitlines()
-
+    _input = readFile("input.txt")
     print(solution1(_input))
     print(solution2(_input))

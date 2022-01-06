@@ -1,5 +1,11 @@
 import os
 
+def readFile(fileName):
+    dir = os.path.abspath(os.path.dirname(__file__))
+    with open(os.path.join(dir, fileName)) as file:
+        _input = file.read().splitlines()
+    return _input
+
 def getBingoNumbers(l):
     return [i for i in l[0].split(',')]
 
@@ -49,9 +55,6 @@ def solution(l, firstLast):
                     return (sum(intArrayOfWholeCard) - sum(intArrayOfPartialCard)) * int(arrayOfBingoNumbers[bingoNumberCalled])
 
 if __name__ == "__main__":
-    dir = os.path.abspath(os.path.dirname(__file__))
-    with open(os.path.join(dir, "input.txt")) as file:
-        _input = file.read().splitlines()
-    
+    _input = readFile("input.txt")
     print(solution(_input, 'first'))
     print(solution(_input, 'last'))

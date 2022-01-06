@@ -1,5 +1,11 @@
 import os
 
+def readFile(fileName):
+    dir = os.path.abspath(os.path.dirname(__file__))
+    with open(os.path.join(dir, fileName)) as file:
+        _input = file.read().splitlines()
+    return prepareData(_input)
+
 def prepareData(l):
     for i in range(len(l)):
         l[i] = l[i].split(' -> ')
@@ -35,10 +41,6 @@ def solution(l, useDiagonals):
     return sum([1 for (k,v) in points.items() if v > 1])
 
 if __name__ == "__main__":
-    dir = os.path.abspath(os.path.dirname(__file__))
-    with open(os.path.join(dir, "input.txt")) as file:
-        _input = file.read().splitlines()
-
-    prepared_data = prepareData(_input)
+    prepared_data = readFile("input.txt")
     print(solution(prepared_data, False))
     print(solution(prepared_data, True))

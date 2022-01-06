@@ -1,5 +1,11 @@
 import os
 
+def readFile(fileName):
+    dir = os.path.abspath(os.path.dirname(__file__))
+    with open(os.path.join(dir, fileName)) as file:
+        _input = file.read().splitlines()
+    return _input
+
 def solution1(l):
     """Count the number of increases from given list m."""
     myArray = [1 for i in range(1, len(l)) if int(l[i]) > int(l[i - 1])]
@@ -14,9 +20,6 @@ def solution2(l):
 
 
 if __name__ == "__main__":
-    dir = os.path.abspath(os.path.dirname(__file__))
-    with open(os.path.join(dir, "input.txt")) as file:
-        _input = file.read().splitlines()
-
+    _input = readFile("input.txt")
     print(solution1(_input))
     print(solution2(_input))

@@ -1,5 +1,11 @@
 import os
 
+def readFile(fileName):
+    dir = os.path.abspath(os.path.dirname(__file__))
+    with open(os.path.join(dir, fileName)) as file:
+        _input = file.read().splitlines()
+    return prepareData(_input)
+
 def prepareData(l):
   return [int(i) for i in l[0].split(',')]
 
@@ -27,10 +33,6 @@ def solution(l, fuelUseGrows):
   return minValue
 
 if __name__ == "__main__":
-  dir = os.path.abspath(os.path.dirname(__file__))
-  with open(os.path.join(dir, "input.txt")) as file:
-    _input = file.read().splitlines()
-
-  data = prepareData(_input)
-  print(solution(data, False))
-  print(solution(data, True))
+  _input = readFile("input.txt")
+  print(solution(_input, False))
+  print(solution(_input, True))

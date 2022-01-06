@@ -1,5 +1,11 @@
 import os
 
+def readFile(fileName):
+    dir = os.path.abspath(os.path.dirname(__file__))
+    with open(os.path.join(dir, fileName)) as file:
+        _input = file.read().splitlines()
+    return _input
+
 def util(array):
     return [char for char in array]
 
@@ -33,7 +39,7 @@ def solution1(l):
             if (singleInput[j] == '1'):
                 totalArray[j] += 1
     for k in range(len(totalArray)):
-        if (int(totalArray[k]) > 500):
+        if (int(totalArray[k]) > (len(l) / 2)):
             finalArray[k] += 1
     gamma = int(''.join(str(e) for e in finalArray), 2)
     epsilon = int(''.join(str(f) for f in [1] * len(l[0])), 2) - gamma
@@ -55,9 +61,6 @@ def solution2(l):
     return int(oxygenFilteredList[0], 2) * int(co2FilteredList[0], 2)
 
 if __name__ == "__main__":
-    dir = os.path.abspath(os.path.dirname(__file__))
-    with open(os.path.join(dir, "input.txt")) as file:
-        _input = file.read().splitlines()
-
+    _input = readFile("input.txt")
     print(solution1(_input))
     print(solution2(_input))
