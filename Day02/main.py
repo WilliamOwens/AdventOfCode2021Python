@@ -5,7 +5,7 @@ VERT = {'down': 1, 'up': -1}
 def solution1(l):
     x = 0 
     y = 0
-    for i in range(0, len(l)):
+    for i in range(len(l)):
         directons = l[i].split()
         if(directons[0] == 'forward'):
             x += int(directons[1])
@@ -17,7 +17,7 @@ def solution2(l):
     x = 0 
     y = 0
     aim = 0
-    for i in range(0, len(l)):
+    for i in range(len(l)):
         directons = l[i].split()
         if(directons[0] == 'forward'):
             x += int(directons[1])

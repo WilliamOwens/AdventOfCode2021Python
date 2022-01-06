@@ -11,7 +11,7 @@ def checkForHorizontalOrVerticalBingo(inputCard):
     for i in range(0, len(inputCard), 5):
         if (len(inputCard[i]) > 0 and len(inputCard[i+1]) > 0 and len(inputCard[i+2]) > 0 and len(inputCard[i+3]) > 0 and len(inputCard[i+4]) > 0):
             return True
-    for j in range(0,5):
+    for j in range(5):
         if (len(inputCard[j]) > 0 and len(inputCard[j+5]) > 0 and len(inputCard[j+10]) > 0 and len(inputCard[j+15]) > 0 and len(inputCard[j+20]) > 0):
             return True
     return False
@@ -28,9 +28,9 @@ def solution(l, firstLast):
     arrayOfBingoNumbers = getBingoNumbers(l)
     singleArrayOfBingoCards = getBingoCardsAsSingleArray(l)
     emptyCard = [''] * len(singleArrayOfBingoCards)
-    for bingoNumberCalled in range(0, len(arrayOfBingoNumbers)):
+    for bingoNumberCalled in range(len(arrayOfBingoNumbers)):
         spots = [i for i, e in enumerate(singleArrayOfBingoCards) if e == arrayOfBingoNumbers[bingoNumberCalled]]
-        for j in range(0, len(spots)):
+        for j in range(len(spots)):
             emptyCard[spots[j]] = arrayOfBingoNumbers[bingoNumberCalled]
         didWeFindBingo = checkForAllBingos(emptyCard)
         if (len(didWeFindBingo) > 0):
@@ -40,7 +40,7 @@ def solution(l, firstLast):
                 return (sum(intArrayOfWholeCard) - sum(intArrayOfPartialCard)) * int(arrayOfBingoNumbers[bingoNumberCalled])
             elif (firstLast == 'last'):
                 if (len(singleArrayOfBingoCards) > 25):
-                    for k in reversed(range(0, len(didWeFindBingo))):
+                    for k in reversed(range(len(didWeFindBingo))):
                         del singleArrayOfBingoCards[(didWeFindBingo[k] * 25):((didWeFindBingo[k] * 25) + 25)]
                         del emptyCard[(didWeFindBingo[k] * 25):((didWeFindBingo[k] * 25) + 25)]
                 else:

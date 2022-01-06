@@ -1,9 +1,9 @@
 import os
 
 def prepareData(l):
-    for i in range(0, len(l)):
+    for i in range(len(l)):
         l[i] = l[i].split(' -> ')
-        for j in range(0, len(l[i])):
+        for j in range(len(l[i])):
             l[i][j] = l[i][j]
     return [[(int(s[0]), int(s[1])) for s in (x.split(",") for x in line)] for line in l]
 
@@ -15,7 +15,7 @@ def solution(l, useDiagonals):
         yDirection = 1 if (y1 < y2) else -1 if (y1 > y2) else 0
         length = max(abs(x1 - x2), abs(y1 - y2))
         if (xDirection == 0 or yDirection == 0):
-            for j in range(0, length+1):
+            for _ in range(length+1):
                 if (x1,y1) in points:
                     points[(x1,y1)] += 1
                 else:
@@ -25,7 +25,7 @@ def solution(l, useDiagonals):
                 else:
                     x1 += (xDirection * 1)
         elif (useDiagonals):
-            for j in range(0, length+1):
+            for _ in range(length+1):
                 if (x1,y1) in points:
                     points[(x1,y1)] += 1
                 else:

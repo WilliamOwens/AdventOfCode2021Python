@@ -5,7 +5,7 @@ def util(array):
 
 def getBit(l, bitToSearch, mostLeast):
     zeroBit, oneBit = 0, 0
-    for i in range(0, len(l)):
+    for i in range(len(l)):
         if (int(l[i][bitToSearch]) == 0):
             zeroBit += 1
         else:
@@ -21,18 +21,18 @@ def getBit(l, bitToSearch, mostLeast):
 def filterInput(l, bitNumber, oxygenOrCO2):
     bitToFind = 0
     bitToFind = getBit(l, bitNumber, oxygenOrCO2)
-    filteredList = [l[i] for i in range(0, len(l)) if int(l[i][bitNumber]) == bitToFind]
+    filteredList = [l[i] for i in range(len(l)) if int(l[i][bitNumber]) == bitToFind]
     return filteredList
 
 def solution1(l):
     totalArray = [0] * len(l[0])
     finalArray = [0] * len(l[0])
-    for i in range(0, len(l)):
+    for i in range(len(l)):
         singleInput = util(l[i])
-        for j in range(0, len(singleInput)):
+        for j in range(len(singleInput)):
             if (singleInput[j] == '1'):
                 totalArray[j] += 1
-    for k in range(0, len(totalArray)):
+    for k in range(len(totalArray)):
         if (int(totalArray[k]) > 500):
             finalArray[k] += 1
     gamma = int(''.join(str(e) for e in finalArray), 2)
