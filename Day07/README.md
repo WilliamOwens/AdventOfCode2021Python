@@ -1,6 +1,6 @@
-# 2021 Day 05: Lanternfish
+# 2021 Day 07: The Treachery of Whales
 Copyright (c) Eric Wastl
-#### [Direct Link](https://adventofcode.com/2021/day/05)
+#### [Direct Link](https://adventofcode.com/2021/day/7)
 
 ## Part 1
 

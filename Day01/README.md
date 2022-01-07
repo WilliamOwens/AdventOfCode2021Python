@@ -1,6 +1,6 @@
 # 2021 Day 01: Sonar Sweep
 Copyright (c) Eric Wastl
-#### [Direct Link](https://adventofcode.com/2021/day/01)
+#### [Direct Link](https://adventofcode.com/2021/day/1)
 
 ## Part 1
 

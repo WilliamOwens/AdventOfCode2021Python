@@ -1,6 +1,6 @@
 # 2021 Day 02: Dive!
 Copyright (c) Eric Wastl
-#### [Direct Link](https://adventofcode.com/2021/day/02)
+#### [Direct Link](https://adventofcode.com/2021/day/2)
 
 ## Part 1
 

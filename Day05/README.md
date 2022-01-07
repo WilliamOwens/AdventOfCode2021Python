@@ -1,6 +1,6 @@
 # 2021 Day 05: Hydrothermal Venture
 Copyright (c) Eric Wastl
-#### [Direct Link](https://adventofcode.com/2021/day/05)
+#### [Direct Link](https://adventofcode.com/2021/day/5)
 
 ## Part 1
 

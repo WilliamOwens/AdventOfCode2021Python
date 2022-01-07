@@ -1,6 +1,6 @@
 # 2021 Day 03: Binary Diagnostic
 Copyright (c) Eric Wastl
-#### [Direct Link](https://adventofcode.com/2021/day/03)
+#### [Direct Link](https://adventofcode.com/2021/day/3)
 
 ## Part 1
 

@@ -1,6 +1,6 @@
 # 2021 Day 04: Giant Squid
 Copyright (c) Eric Wastl
-#### [Direct Link](https://adventofcode.com/2021/day/04)
+#### [Direct Link](https://adventofcode.com/2021/day/4)
 
 ## Part 1
 

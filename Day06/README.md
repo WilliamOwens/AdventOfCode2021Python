@@ -1,6 +1,6 @@
-# 2021 Day 05: Lanternfish
+# 2021 Day 06: Lanternfish
 Copyright (c) Eric Wastl
-#### [Direct Link](https://adventofcode.com/2021/day/05)
+#### [Direct Link](https://adventofcode.com/2021/day/6)
 
 ## Part 1
 
