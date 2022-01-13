@@ -1,5 +1,4 @@
 import os
-import time
 
 def readFile(fileName):
   dir = os.path.abspath(os.path.dirname(__file__))
